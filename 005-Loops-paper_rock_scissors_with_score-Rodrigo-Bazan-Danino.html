@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+   
+   <meta charset="utf-8">
+   <title>Loop with for</title>
+
+<style>
+
+body {
+	background-color: #DEB887;
+}
+
+h1   {
+	color: #A52A2A;
+	font-size: 40px;
+}
+
+div	{
+    text-align:center;
+}
+
+p    {
+	color: black;
+	font-size: 24px;
+}
+
+#demo3 {
+	color: red;
+	font-size: 40px;
+} 
+
+button {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+button:hover {background-color: #3e8e41}
+
+button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+
+</style>
+
+</head>
+<body>
+
+<div>
+
+<h1>Choose Paper, Rock or Scissors</h1>
+
+<button onclick="buttonPress('Paper')">Paper</button>
+
+<button onclick="buttonPress('Rock')">Rock</button>
+
+<button onclick="buttonPress('Scissors')">Scissors</button>
+
+<!-- <button onclick="clearScores()">Clear Scores</button> -->
+
+<p id="demo1">You Choose: </p> 
+   
+<p id="demo2">Computer Choose: </p>
+
+<p id="demo4">Player Score = 0</p>
+ 
+<p id="demo5">Computer Score = 0</p>
+
+<p id="demo3"></p>
+
+</div>
+
+<script>
+
+var scorePlayer = 0
+var scoreComputer = 0
+			
+function buttonPress(choice) 
+
+//Computer choice
+{
+	var player = choice
+	
+	
+		document.getElementById("demo1").innerHTML = "You Choose: " + player;
+			 
+	var computer = Math.random() * 100 + 1;
+
+	    if (computer <= 33) {
+		document.getElementById("demo2").innerHTML = "Computer Choose: Paper";
+		computer = "Paper";
+		}
+		else if (computer <=66) {
+		document.getElementById("demo2").innerHTML = "Computer Choose: Rock";
+		computer = "Rock";
+		}
+		else {
+		document.getElementById("demo2").innerHTML = "Computer Choose: Scissors";
+		computer = "Scissors"
+		}
+//Who wins?
+			
+			if (player == computer) {
+				document.getElementById("demo3").innerHTML = "It is a tie!!! Play Again";
+			}
+			else if (player == "Paper" && computer == "Rock") {
+				scorePlayer++; 
+				document.getElementById("demo3").innerHTML = "You Win !!!";
+				document.getElementById("demo4").innerHTML = "Player Score = " + scorePlayer;
+				
+			}
+			else if (player == "Paper" && computer == "Scissors") {
+				scoreComputer++;
+				document.getElementById("demo3").innerHTML = "You lost !!!";
+				document.getElementById("demo5").innerHTML = "Computer Score = " + scoreComputer;
+			}
+			else if (player == "Rock" && computer == "Paper") {
+				scoreComputer++;
+				document.getElementById("demo3").innerHTML = "You lost !!!";
+				document.getElementById("demo5").innerHTML = "Computer Score = " + scoreComputer;
+			}
+			else if (player == "Rock" && computer == "Scissors") {
+				scorePlayer++;
+				document.getElementById("demo3").innerHTML = "You Win !!!";
+				document.getElementById("demo4").innerHTML = "Player Score = " + scorePlayer;
+			}
+			else if (player == "Scissors" && computer == "Rock") {
+				scoreComputer++;
+				document.getElementById("demo3").innerHTML = "You Lost !!!";
+				document.getElementById("demo5").innerHTML = "Computer Score = " + scoreComputer;
+
+			}else if (player == "Scissors" && computer == "Paper") {
+				scorePlayer++;
+				document.getElementById("demo3").innerHTML = "You Win !!!";
+				document.getElementById("demo4").innerHTML = "Player Score = " + scorePlayer;
+			}
+			
+			
+/*clear score function
+	function clearScore() {
+		
+		}*/
+} 
+
+//Made by RBD
+</script>
+
+</body>
+
+</html> 
